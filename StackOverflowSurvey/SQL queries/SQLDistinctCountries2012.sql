@@ -1,0 +1,1 @@
+﻿select count(DISTINCT Country) from SurveyResponses2012;
