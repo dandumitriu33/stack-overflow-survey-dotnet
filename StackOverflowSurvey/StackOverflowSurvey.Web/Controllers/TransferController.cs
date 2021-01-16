@@ -331,6 +331,77 @@ namespace StackOverflowSurvey.Web.Controllers
             return payload;
         }
 
+        // GET: api/<TranferController>/transfer-2014
+        [HttpGet]
+        [Route("transfer-2014")]
+        public async Task<string> Transfer2014()
+        {
+            List<SurveyResponse2014Model> inMemoryTempDb = new List<SurveyResponse2014Model>();
+            using (var reader = new StreamReader(@"C:\stackoverflow\2014 Stack Overflow Survey Responses.csv"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+
+                    string processedLine = processLine2014(line);
+
+                    var values = processedLine.Split(',');
+
+                    SurveyResponse2014Model newResponseToAdd = new SurveyResponse2014Model
+                    {
+                        Country = values[0],
+                        CountryOther = values[1],
+                        State = values[2],
+                        Age = values[3],
+                        Gender = values[4],
+                        ProgrammingExperience = values[5],
+                        Occupation = values[6],
+                        Industry = values[8],
+                        LanguageProC = values[42],
+                        LanguageProCPlusPlus = values[43],
+                        LanguageProCSharp = values[44],
+                        LanguageProJava = values[45],
+                        LanguageProJavaScript = values[46],
+                        LanguageProNodeJs = values[47],
+                        ObjectiveC = values[48],
+                        LanguageProPHP = values[49],
+                        LanguageProPython = values[50],
+                        LanguageProRuby = values[51],
+                        LanguageProSQL = values[52],
+                        LanguageProOther = values[53]
+                    };
+                    inMemoryTempDb.Add(newResponseToAdd);
+
+                }
+            }
+            foreach (var response in inMemoryTempDb)
+            {
+                await _repository.Add2014Response(response);
+            }
+            
+            string payload = "Transfer 2014 complete.";
+
+            return payload;
+        }
+
+        private string processLine2014(string line)
+        {
+            line = line.Replace(",000", "K");
+            line = line.Replace(",001", "K");
+            line = line.Replace("001", "K");
+            line = line.Replace("average week, how", "average week how");
+            line = line.Replace("mobile app, what", "mobile app what");
+            line = line.Replace("like it, though", "like it though");
+            line = line.Replace("(hardware, software, consulting, etc)", "(hardware software consulting etc)");
+            line = line.Replace("bonus, what", "bonus what");
+            line = line.Replace("months, how", "months how");
+            line = line.Replace("decisions, but", "decisions but");
+            line = line.Replace("\"Executive (VP of Eng, CTO, CIO, etc.)\"", "Executive VP CTO CIO");
+            line = line.Replace("\"Other (not working, consultant, etc.)\"", "Other not working consultant");
+            line = line.Replace("\"User Equipment: Monitors, PCs, Laptops\"", "User Equipment Monitors PCs Laptops");
+            return line;
+        }
+
         private string processLine2013(string line)
         {
             line = line.Replace(",000", "K");
