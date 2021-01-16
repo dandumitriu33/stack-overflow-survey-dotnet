@@ -25,34 +25,34 @@ namespace StackOverflowSurvey.Web.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AnnualUSD")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Budget")
+                    b.Property<string>("Budget100K150K")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BudgetOption1")
+                    b.Property<string>("Budget10K25K")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BudgetOption2")
+                    b.Property<string>("Budget25K40K")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BudgetOption3")
+                    b.Property<string>("Budget40K75K")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BudgetOption4")
+                    b.Property<string>("Budget75K100K")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BudgetOption5")
+                    b.Property<string>("BudgetDontKnow")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BudgetOption6")
+                    b.Property<string>("BudgetLess10K")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BudgetOption7")
+                    b.Property<string>("BudgetMore150K")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CareerSatisfaction")
@@ -67,46 +67,43 @@ namespace StackOverflowSurvey.Web.Migrations
                     b.Property<string>("Industry")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Influence")
+                    b.Property<string>("LanguageProC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language1")
+                    b.Property<string>("LanguageProCPlusPlus")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language10")
+                    b.Property<string>("LanguageProCSS")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language11")
+                    b.Property<string>("LanguageProCSharp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language12")
+                    b.Property<string>("LanguageProJava")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language2")
+                    b.Property<string>("LanguageProJavaScript")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language3")
+                    b.Property<string>("LanguageProNone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language4")
+                    b.Property<string>("LanguageProOther")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language5")
+                    b.Property<string>("LanguageProPHP")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language6")
+                    b.Property<string>("LanguageProPerl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language7")
+                    b.Property<string>("LanguageProPython")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language8")
+                    b.Property<string>("LanguageProRuby")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language9")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LanguageProficient")
+                    b.Property<string>("LanguageProSQL")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Occupation")
@@ -115,46 +112,49 @@ namespace StackOverflowSurvey.Web.Migrations
                     b.Property<string>("OperatingSystem")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProgrammingExperience")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PurchaseType")
+                    b.Property<string>("ProgrammingExperience")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseTypeOption1")
+                    b.Property<string>("PurchaseRecommendationInfluence")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseTypeOption2")
+                    b.Property<string>("PurchaseRoleApprover")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseTypeOption3")
+                    b.Property<string>("PurchaseRoleCheckWriter")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseTypeOption4")
+                    b.Property<string>("PurchaseRoleImASeller")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseTypeOption5")
+                    b.Property<string>("PurchaseRoleInfluencer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseWeight")
+                    b.Property<string>("PurchaseRoleNoInvolvement")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseWeightOption1")
+                    b.Property<string>("PurchaseRolePurchaser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseWeightOption2")
+                    b.Property<string>("PurchaseRoleRecommender")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseWeightOption3")
+                    b.Property<string>("PurchaseTypeConsultants")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseWeightOption4")
+                    b.Property<string>("PurchaseTypeHardware")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseWeightOption5")
+                    b.Property<string>("PurchaseTypeOther")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PurchaseWeightOption6")
+                    b.Property<string>("PurchaseTypeServers")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PurchaseTypeSoftware")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PurchaseTypeUserEquipment")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SpentOnTechLastYear")
@@ -163,55 +163,55 @@ namespace StackOverflowSurvey.Web.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwn")
+                    b.Property<string>("TechProductOwnAndroid")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption1")
+                    b.Property<string>("TechProductOwnAppleTV")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption10")
+                    b.Property<string>("TechProductOwnBlackberry")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption11")
+                    b.Property<string>("TechProductOwnBluRay")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption12")
+                    b.Property<string>("TechProductOwnHDTV")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption13")
+                    b.Property<string>("TechProductOwnIPad")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption14")
+                    b.Property<string>("TechProductOwnKindle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption15")
+                    b.Property<string>("TechProductOwnNook")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption16")
+                    b.Property<string>("TechProductOwnOtherGamingSystem")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption2")
+                    b.Property<string>("TechProductOwnOtherNetbook")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption3")
+                    b.Property<string>("TechProductOwnOtherSmartPhone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption4")
+                    b.Property<string>("TechProductOwnOtherTech")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption5")
+                    b.Property<string>("TechProductOwnPS3")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption6")
+                    b.Property<string>("TechProductOwnRegularMobilePhone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption7")
+                    b.Property<string>("TechProductOwnWii")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption8")
+                    b.Property<string>("TechProductOwnXBox")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TechProductOwnOption9")
+                    b.Property<string>("TechProductOwniPhone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeOfProject")

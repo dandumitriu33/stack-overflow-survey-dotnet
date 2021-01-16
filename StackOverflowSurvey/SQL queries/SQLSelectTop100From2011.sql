@@ -1,0 +1,1 @@
+﻿Select top 100 * from SurveyResponses2011;
