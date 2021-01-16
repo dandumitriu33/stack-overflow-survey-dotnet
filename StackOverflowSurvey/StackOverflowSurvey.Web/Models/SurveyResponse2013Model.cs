@@ -28,27 +28,27 @@ namespace StackOverflowSurvey.Web.Models
         public string RolesInteractHR { get; set; }
         public string YourCompanyMobileAppIPhone { get; set; }
         public string YourCompanyMobileAppIPad { get; set; }
-        public string YourCompanyMobileAppAndroidPhone{ get; set; }
-        public string YourCompanyMobileAppAndroidTablet{ get; set; }
-        public string YourCompanyMobileAppBlackberry{ get; set; }
-        public string YourCompanyMobileAppOther{ get; set; }
-        public string YourCompanyMobileAppNoApp{ get; set; }
-        public string HowYourCompanyMonetizeAdvertising{ get; set; }
-        public string HowYourCompanyMonetizeDirectSalesConsumer{ get; set; }
-        public string HowYourCompanyMonetizeDirectSalesCompany{ get; set; }
-        public string HowYourCompanyMonetizeSaaSSubscription{ get; set; }
-        public string HowYourCompanyMonetizeAppSales{ get; set; }
-        public string HowYourCompanyMonetizeConsulting{ get; set; }
-        public string HowYourCompanyMonetizeGrantFundRaising{ get; set; }
-        public string HowYourCompanyMonetizeOther{ get; set; }
-        public string TimeSpentWeekNewFeatures{ get; set; }
-        public string TimeSpentWeekRefactoring{ get; set; }
-        public string TimeSpentWeekBugs{ get; set; }
-        public string TimeSpentWeekTechSupport{ get; set; }
-        public string TimeSpentWeekMeetings{ get; set; }
-        public string TimeSpentWeekLearningNewSkill{ get; set; }
-        public string TimeSpentWeekInternetBrowsing{ get; set; }
-        public string TimeSpentWeekCommuting{ get; set; }
+        public string YourCompanyMobileAppAndroidPhone { get; set; }
+        public string YourCompanyMobileAppAndroidTablet { get; set; }
+        public string YourCompanyMobileAppBlackberry { get; set; }
+        public string YourCompanyMobileAppOther { get; set; }
+        public string YourCompanyMobileAppNoApp { get; set; }
+        public string HowYourCompanyMonetizeAdvertising { get; set; }
+        public string HowYourCompanyMonetizeDirectSalesConsumer { get; set; }
+        public string HowYourCompanyMonetizeDirectSalesCompany { get; set; }
+        public string HowYourCompanyMonetizeSaaSSubscription { get; set; }
+        public string HowYourCompanyMonetizeAppSales { get; set; }
+        public string HowYourCompanyMonetizeConsulting { get; set; }
+        public string HowYourCompanyMonetizeGrantFundRaising { get; set; }
+        public string HowYourCompanyMonetizeOther { get; set; }
+        public string TimeSpentWeekNewFeatures { get; set; }
+        public string TimeSpentWeekRefactoring { get; set; }
+        public string TimeSpentWeekBugs { get; set; }
+        public string TimeSpentWeekTechSupport { get; set; }
+        public string TimeSpentWeekMeetings { get; set; }
+        public string TimeSpentWeekLearningNewSkill { get; set; }
+        public string TimeSpentWeekInternetBrowsing { get; set; }
+        public string TimeSpentWeekCommuting { get; set; }
         public string PurchaseRoleRecommender { get; set; }
         public string PurchaseRoleInfluencer { get; set; }
         public string PurchaseRolePurchaser { get; set; }

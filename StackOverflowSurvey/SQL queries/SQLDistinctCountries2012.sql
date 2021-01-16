@@ -1,1 +1,1 @@
-﻿select count(DISTINCT Country) from SurveyResponses2012;
+﻿select count(*) from SurveyResponses2013;

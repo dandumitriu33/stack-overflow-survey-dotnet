@@ -7,5 +7,6 @@ namespace StackOverflowSurvey.Web.Repository
     {
         Task Add2011Response(SurveyResponse2011Model response);
         Task Add2012Response(SurveyResponse2012Model response);
+        Task Add2013Response(SurveyResponse2013Model response);
     }
 }

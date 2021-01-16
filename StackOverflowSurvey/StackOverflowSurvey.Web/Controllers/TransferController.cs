@@ -228,16 +228,131 @@ namespace StackOverflowSurvey.Web.Controllers
             return payload;
         }
 
+        // GET: api/<TranferController>/transfer-2013
+        [HttpGet]
+        [Route("transfer-2013")]
+        public async Task<string> Transfer2013()
+        {
+            List<SurveyResponse2013Model> inMemoryTempDb = new List<SurveyResponse2013Model>();
+            using (var reader = new StreamReader(@"C:\stackoverflow\2013 Stack Overflow Survey Responses.csv"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+
+                    string processedLine = processLine2013(line);
+
+                    var values = processedLine.Split(',');
+
+                    SurveyResponse2013Model newResponseToAdd = new SurveyResponse2013Model
+                    {
+                        Country = values[0],
+                        State = values[1],
+                        Age = values[2],
+                        ProgrammingExperience = values[3],
+                        Industry = values[4],
+                        CompanySize = values[5],
+                        //Occupation = values[6],
+                        //TotalDevsYourCompany = values[7],
+                        //TotalDevsYourTeam = values[8],
+                        //RolesInteractSysAdmin = values[9],
+                        //RolesInteractDesigner = values[10],
+                        //RolesInteractProductManager = values[11],
+                        //RolesInteractTestQA = values[12],
+                        //RolesInteractTechSupport = values[13],
+                        //RolesInteractSalesMarketing = values[14],
+                        //RolesInteractCustomers = values[15],
+                        //RolesInteractFinance = values[16],
+                        //RolesInteractHR = values[17],
+                        //YourCompanyMobileAppIPhone = values[18],
+                        //YourCompanyMobileAppIPad = values[19],
+                        //YourCompanyMobileAppAndroidPhone = values[20],
+                        //YourCompanyMobileAppAndroidTablet = values[21],
+                        //YourCompanyMobileAppBlackberry = values[22],
+                        //YourCompanyMobileAppOther = values[23],
+                        //YourCompanyMobileAppNoApp = values[24],
+                        //HowYourCompanyMonetizeAdvertising = values[25],
+                        //HowYourCompanyMonetizeDirectSalesConsumer = values[26],
+                        //HowYourCompanyMonetizeDirectSalesCompany = values[27],
+                        //HowYourCompanyMonetizeSaaSSubscription = values[28],
+                        //HowYourCompanyMonetizeAppSales = values[29],
+                        //HowYourCompanyMonetizeConsulting = values[30],
+                        //HowYourCompanyMonetizeGrantFundRaising = values[31],
+                        //HowYourCompanyMonetizeOther = values[32],
+                        //TimeSpentWeekNewFeatures = values[33],
+                        //TimeSpentWeekRefactoring = values[34],
+                        //TimeSpentWeekBugs = values[35],
+                        //TimeSpentWeekTechSupport = values[36],
+                        //TimeSpentWeekMeetings = values[37],
+                        //TimeSpentWeekLearningNewSkill = values[38],
+                        //TimeSpentWeekInternetBrowsing = values[39],
+                        //TimeSpentWeekCommuting = values[40],
+                        //PurchaseRoleRecommender = values[41],
+                        //PurchaseRoleInfluencer = values[42],
+                        //PurchaseRolePurchaser = values[43],
+                        //PurchaseRoleApprover = values[44],
+                        //PurchaseRoleCheckWriter = values[45],
+                        //PurchaseRoleNoInvolvement = values[46],
+                        //PurchaseRoleImASeller = values[47],
+                        //PurchaseTypeHardware = values[48],
+                        //PurchaseTypeServers = values[49],
+                        //PurchaseTypeSoftware = values[50],
+                        //PurchaseTypeUserEquipment = values[51],
+                        //PurchaseTypeConsultants = values[52],
+                        //PurchaseTypeOther = values[53],
+                        Budget = values[55],
+                        LanguageProC = values[56],
+                        LanguageProCPlusPlus = values[57],
+                        LanguageProCSharp = values[58],
+                        LanguageProJava = values[59],
+                        LanguageProJavaScript = values[60],
+                        LanguageProJQuery = values[61],
+                        LanguageProJQuery2 = values[62],
+                        LanguageProNodeJs = values[63],
+                        ObjectiveC = values[64],
+                        LanguageProPHP = values[65],
+                        LanguageProPython = values[66],
+                        LanguageProRuby = values[67],
+                        LanguageProSQL = values[68],
+                        LanguageProOther = values[69]
+                    };
+                    inMemoryTempDb.Add(newResponseToAdd);
+
+                }
+            }
+            foreach (var response in inMemoryTempDb)
+            {
+                await _repository.Add2013Response(response);
+            }
+
+
+            string payload = "Transfer 2013 complete.";
+
+            return payload;
+        }
+
+        private string processLine2013(string line)
+        {
+            line = line.Replace(",000", "K");
+            line = line.Replace(",001", "K");
+            line = line.Replace("001", "K");
+            line = line.Replace("(hardware, software, consulting, etc)", "(hardware software consulting etc)");
+            line = line.Replace("bonus, what", "bonus what");
+            line = line.Replace("months, how", "months how");
+            line = line.Replace("decisions, but", "decisions but");
+            line = line.Replace("\"Executive (VP of Eng, CTO, CIO, etc.)\"", "Executive VP CTO CIO");
+            line = line.Replace("\"Other (not working, consultant, etc.)\"", "Other not working consultant");
+            line = line.Replace("\"User Equipment: Monitors, PCs, Laptops\"", "User Equipment Monitors PCs Laptops");
+            return line;
+        }
+
         private string processLine2012(string line)
         {
             line = line.Replace(",000", "K");
             line = line.Replace(",001", "K");
-            line = line.Replace("(hardware, software, consulting, etc)",
-                                "(hardware software consulting etc)");
-            line = line.Replace("bonus, what",
-                                "bonus what");
-            line = line.Replace("months, how",
-                                "months how");
+            line = line.Replace("(hardware, software, consulting, etc)", "(hardware software consulting etc)");
+            line = line.Replace("bonus, what", "bonus what");
+            line = line.Replace("months, how", "months how");
             line = line.Replace("\"Executive (VP of Eng, CTO, CIO, etc.)\"", "Executive VP CTO CIO");
             line = line.Replace("\"Other (not working, consultant, etc.)\"", "Other not working consultant");
             line = line.Replace("\"User Equipment: Monitors, PCs, Laptops\"", "User Equipment Monitors PCs Laptops");
