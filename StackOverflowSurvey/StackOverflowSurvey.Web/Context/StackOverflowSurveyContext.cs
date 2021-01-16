@@ -18,5 +18,6 @@ namespace StackOverflowSurvey.Web.Context
         public DbSet<SurveyResponse2012Model> SurveyResponses2012 { get; set; }
         public DbSet<SurveyResponse2013Model> SurveyResponses2013 { get; set; }
         public DbSet<SurveyResponse2014Model> SurveyResponses2014 { get; set; }
+        public DbSet<SurveyResponse2015Model> SurveyResponses2015 { get; set; }
     }
 }
