@@ -48,5 +48,11 @@ namespace StackOverflowSurvey.Web.Repository
             await _context.SurveyResponses2016.AddAsync(response);
             await _context.SaveChangesAsync();
         }
+
+        public async Task Add2017Response(SurveyResponse2017Model response)
+        {
+            await _context.SurveyResponses2017.AddAsync(response);
+            await _context.SaveChangesAsync();
+        }
     }
 }
