@@ -516,7 +516,7 @@ namespace StackOverflowSurvey.Web.Controllers
                     string processedLine = processLine2017(line);
                     var values = processedLine.Split(',');
                     List<string> languages = new List<string>();
-                    var untrimmedLanguages = values[89].Split(';');
+                    var untrimmedLanguages = values[88].Split(';');
                     foreach (var language in untrimmedLanguages)
                     {
                         languages.Add(language.Trim());
@@ -566,19 +566,24 @@ namespace StackOverflowSurvey.Web.Controllers
 
         private string processLine2017(string line)
         {
-            line = line.Replace("\"", "");
+            //line = line.Replace("\"", "");
             line = line.Replace("Yes, both", "Yes both");
             line = line.Replace("Yes, I program", "Yes I program");
+            line = line.Replace("Yes, I contribute", "Yes I contribute");
             line = line.Replace("Not employed, and not", "Not employed and not");
+            line = line.Replace("technology, networking, or system", "technology networking or system");
+            line = line.Replace("Not employed, but", "Not employed but");
             line = line.Replace("contractor, freelancer, or", "contractor freelancer or");
             line = line.Replace("half, but not all, the", "half but not all the");
             line = line.Replace("half the time, but at", "half the time but at");
             line = line.Replace("company, not in startup", "company not in startup");
             line = line.Replace("partnership, not in startup", "partnership not in startup");
-            line = line.Replace("g,", "g");
+            line = line.Replace("\"g,\"", "g");
             line = line.Replace("actively looking, but", "actively looking but");
             line = line.Replace("project, assignment, or contract", "project assignment or contract");
             line = line.Replace("friend, family member, or", "friend family member or");
+            line = line.Replace("Yes, part-time", "Yes part-time");
+            line = line.Replace("Yes, full-time", "Yes full-time");
             line = line.Replace(",000", "K");
             line = line.Replace(",999", "_999");
             line = line.Replace(",001", "K");
