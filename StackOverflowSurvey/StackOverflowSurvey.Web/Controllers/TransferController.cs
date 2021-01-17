@@ -698,19 +698,21 @@ namespace StackOverflowSurvey.Web.Controllers
 
         private string processLine2019(string line)
         {
+            line = line.Replace("\"", "");
+            line = line.Replace("developer, but", "developer but");
+            line = line.Replace(" is, on average, of", " is on average of");
+            line = line.Replace("OSS is, on average, of", "OSS is on average of");
+            line = line.Replace("tor, freelancer, or self", "tor freelancer or self­");
+            line = line.Replace("employed, but", "employed but");
+            line = line.Replace("employed, and not", "employed and not");
             line = line.Replace("Yes, part-time", "Yes part-time");
             line = line.Replace("Yes, full-time", "Yes full-time");
+            line = line.Replace("high school, German", "high school German");
+            line = line.Replace("Gymnasium, etc", "Gymnasium etc");
             line = line.Replace("BA, BS, B.Eng., etc", "BA BS B.Eng. etc");
             line = line.Replace("MA, MS, M.Eng., MBA, etc", "MA MS M.Eng. MBA etc");
             line = line.Replace("JD, MD, etc", "JD MD etc");
             line = line.Replace("Ph.D, Ed.D., etc", "Ph.D Ed.D. etc");
-            line = line.Replace("high school, German", "high school German");
-            line = line.Replace("Gymnasium, etc", "Gymnasium etc");
-            line = line.Replace("developer, but", "developer but");
-            line = line.Replace("profession, but", "profession but");
-            line = line.Replace("contractor, freelancer, or self", "contractor freelancer or self");
-            line = line.Replace("employed, but", "employed but");
-            line = line.Replace("employed, and not", "employed and not");
             line = line.Replace("science, computer engineering, or", "science computer engineering or");
             line = line.Replace("systems, information technology, or", "systems information technology or");
             line = line.Replace("civil, electrical, mec", "civil electrical mec");
@@ -720,20 +722,41 @@ namespace StackOverflowSurvey.Web.Controllers
             line = line.Replace("biology, chemistry, physics", "biology chemistry physics");
             line = line.Replace("anthropology, psychology, politic", "anthropology psychology politic");
             line = line.Replace("design, music, studio", "design music studio");
-            line = line.Replace("Media, advertising, publishing, or", "Media advertising publishing or");
+            line = line.Replace(" language, framework, or", " language framework or");
+            line = line.Replace("HackerRank, CodeChef,", "HackerRank CodeChef");
+            line = line.Replace("freelancer, sole proprietor, etc", "freelancer sole proprietor etc");
             line = line.Replace(",000", "K");
             line = line.Replace(",999", "_999");
-            line = line.Replace("CEO, CTO, etc", "CEO CTO etc");
+            line = line.Replace("Developer, ", "Developer ");
+            line = line.Replace("Engineer, ", "Engineer ");
+            line = line.Replace("C­Suite, VP, etc", "C­Suite, VP, etc");
             line = line.Replace("looking, but", "looking but");
-            line = line.Replace("languages, frameworks, and", "languages frameworks and");
+            line = line.Replace("e.g., on a", "e.g. on a");
+            line = line.Replace("anguages, frameworks, and", "languages frameworks and");
+            line = line.Replace("promotion, new job, etc", "promotion new job etc");
+            line = line.Replace("recruiter, online job posting, etc.", "recruiter online job posting etc.");
+            line = line.Replace("education, award, media, etc", "education award media etc");
+            line = line.Replace("colleague), and", "colleague) and");
+            line = line.Replace("parenting, school work, hobbies, etc", "parenting school work hobbies etc");
+            line = line.Replace("half, but not all, the time", "half but not all the time");
+            line = line.Replace("time, but", "time but");
+            line = line.Replace("place, such", "place such");
+            line = line.Replace("Yes, because", "Yes because");
+            line = line.Replace("Yes, it's", "Yes it's");
+            line = line.Replace("No, ", "No ");
+            line = line.Replace("CTO, CIO, or", "CTO CIO or");
+
+            // not in the PDF but just in case
+            line = line.Replace("developer, but", "developer but");
+            line = line.Replace("profession, but", "profession but");
+            line = line.Replace("Media, advertising, publishing, or", "Media advertising publishing or");            
+            line = line.Replace("CEO, CTO, etc", "CEO CTO etc");
             line = line.Replace("transportation, public", "transportation public");
             line = line.Replace("membership, nutritionist", "membership nutritionist");
             line = line.Replace("history, projects", "history projects");
             line = line.Replace("Office, Google Suite, etc", "Office Google Suite etc");
             line = line.Replace("IRC, proprietary software, etc", "IRC proprietary software etc");
-            line = line.Replace("Github, Google Sites, proprietary software, etc", "Github Google Sites proprietary software etc");
-            line = line.Replace(" language, framework, or", " language framework or");
-            line = line.Replace("HackerRank, CodeChef,", "HackerRank CodeChef");
+            line = line.Replace("Github, Google Sites, proprietary software, etc", "Github Google Sites proprietary software etc");            
             line = line.Replace("Reilly, Apress, or", "Reilly Apress or");
             line = line.Replace(" friends, family, and", " friends family and");
             line = line.Replace("forums, listservs, IRC channels, etc", "forums listservs IRC channels etc");
