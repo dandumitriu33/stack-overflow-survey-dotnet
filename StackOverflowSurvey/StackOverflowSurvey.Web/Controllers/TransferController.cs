@@ -508,7 +508,7 @@ namespace StackOverflowSurvey.Web.Controllers
         public async Task<string> Transfer2017()
         {
             List<SurveyResponse2017Model> inMemoryTempDb = new List<SurveyResponse2017Model>();
-            using (var reader = new StreamReader(@"C:\stackoverflow\2017 Stack Overflow Survey Results\2017Testing.csv"))
+            using (var reader = new StreamReader(@"C:\stackoverflow\2017 Stack Overflow Survey Results\survey_results_public.csv"))
             {
                 while (!reader.EndOfStream)
                 {
