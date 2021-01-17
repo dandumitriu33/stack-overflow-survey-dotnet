@@ -8,6 +8,7 @@ namespace StackOverflowSurvey.Web.Models
 {
     public class SurveyResponse2018Model
     {
+        public int Id { get; set; }
         public string Country { get; set; }
         [Column(TypeName = "VARCHAR(100)")]
         public string LanguageProC { get; set; }

@@ -564,6 +564,99 @@ namespace StackOverflowSurvey.Web.Controllers
             return payload;
         }
 
+        // GET: api/<TranferController>/transfer-2018
+        [HttpGet]
+        [Route("transfer-2018")]
+        public async Task<string> Transfer2018()
+        {
+            List<SurveyResponse2018Model> inMemoryTempDb = new List<SurveyResponse2018Model>();
+            using (var reader = new StreamReader(@"C:\stackoverflow\2018 Stack Overflow Survey Results\2018Testing.csv"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    string processedLine = processLine2018(line);
+                    var values = processedLine.Split(',');
+                    List<string> languages = new List<string>();
+                    var untrimmedLanguages = values[88].Split(';');
+                    foreach (var language in untrimmedLanguages)
+                    {
+                        languages.Add(language.Trim());
+                    }
+
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var lang in languages)
+                    {
+                        sb.Append(lang);
+                    }
+
+                    SurveyResponse2018Model newResponseToAdd = new SurveyResponse2018Model
+                    {
+                        Country = values[3],
+                        //LanguageProC = sb.ToString(),
+                        LanguageProC = languages.Contains("C") ? "C" : null,
+                        LanguageProCPlusPlus = languages.Contains("C++") ? "C++" : null,
+                        LanguageProCSharp = languages.Contains("C#") ? "C#" : null,
+                        LanguageProGo = languages.Contains("Go") ? "Go" : null,
+                        LanguageProJava = languages.Contains("Java") ? "Java" : null,
+                        LanguageProJavaScript = languages.Contains("JavaScript") ? "JavaScript" : null,
+                        LanguageProNodeJs = languages.Contains("Node.js") ? "Node.js" : null,
+                        LanguageProObjectiveC = languages.Contains("Objective-C") ? "Objective-C" : null,
+                        LanguageProPerl = languages.Contains("Perl") ? "Perl" : null,
+                        LanguageProPHP = languages.Contains("PHP") ? "PHP" : null,
+                        LanguageProPython = languages.Contains("Python") ? "Python" : null,
+                        LanguageProRuby = languages.Contains("Ruby") ? "Ruby" : null,
+                        LanguageProRust = languages.Contains("Rust") ? "Rust" : null,
+                        LanguageProSQL = languages.Contains("SQL") ? "SQL" : null,
+                        LanguageProSQLServer = languages.Contains("SQL Server") ? "SQL Server" : null,
+                        LanguageProSwift = languages.Contains("Swift") ? "Swift" : null
+                    };
+
+                    inMemoryTempDb.Add(newResponseToAdd);
+
+                }
+            }
+            foreach (var response in inMemoryTempDb)
+            {
+                //await _repository.Add2018Response(response);
+            }
+
+            string payload = "Transfer 2018 complete.";
+
+            return payload;
+        }
+
+        private string processLine2018(string line)
+        {
+            //line = line.Replace("\"", "");
+            line = line.Replace("Yes, both", "Yes both");
+            line = line.Replace("Yes, I program", "Yes I program");
+            line = line.Replace("Yes, I contribute", "Yes I contribute");
+            line = line.Replace("Not employed, and not", "Not employed and not");
+            line = line.Replace("technology, networking, or system", "technology networking or system");
+            line = line.Replace("Not employed, but", "Not employed but");
+            line = line.Replace("contractor, freelancer, or", "contractor freelancer or");
+            line = line.Replace("half, but not all, the", "half but not all the");
+            line = line.Replace("half the time, but at", "half the time but at");
+            line = line.Replace("company, not in startup", "company not in startup");
+            line = line.Replace("partnership, not in startup", "partnership not in startup");
+            line = line.Replace("\"g,\"", "g");
+            line = line.Replace("actively looking, but", "actively looking but");
+            line = line.Replace("project, assignment, or contract", "project assignment or contract");
+            line = line.Replace("friend, family member, or", "friend family member or");
+            line = line.Replace("Yes, part-time", "Yes part-time");
+            line = line.Replace("Yes, full-time", "Yes full-time");
+            line = line.Replace(",000", "K");
+            line = line.Replace(",999", "_999");
+            line = line.Replace(",001", "K");
+            line = line.Replace("001", "K");
+
+            line = line.Replace(" Scientists, Machine", " Scientists Machine");
+            line = line.Replace("AWS, GAE, Azure, etc", "AWS GAE Azure etc");
+            line = line.Replace("Android, iOS, WP ", "Android iOS WP ");
+            return line;
+        }
+
         private string processLine2017(string line)
         {
             //line = line.Replace("\"", "");
