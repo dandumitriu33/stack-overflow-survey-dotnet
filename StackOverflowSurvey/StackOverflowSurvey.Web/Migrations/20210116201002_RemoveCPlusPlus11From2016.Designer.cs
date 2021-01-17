@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StackOverflowSurvey.Web.Context;
 
 namespace StackOverflowSurvey.Web.Migrations
 {
     [DbContext(typeof(StackOverflowSurveyContext))]
-    partial class StackOverflowSurveyContextModelSnapshot : ModelSnapshot
+    [Migration("20210116201002_RemoveCPlusPlus11From2016")]
+    partial class RemoveCPlusPlus11From2016
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

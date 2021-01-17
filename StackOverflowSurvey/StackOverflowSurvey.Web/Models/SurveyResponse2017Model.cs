@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace StackOverflowSurvey.Web.Models
 {
-    public class SurveyResponse2016Model
+    public class SurveyResponse2017Model
     {
         public int Id { get; set; }
         public string Country { get; set; }
-        public string Age { get; set; }
-        public string Gender { get; set; }
         public string LanguageProC { get; set; }
         public string LanguageProCPlusPlus { get; set; }
         public string LanguageProCSharp { get; set; }

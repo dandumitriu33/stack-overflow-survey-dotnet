@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace StackOverflowSurvey.Web.Controllers
@@ -435,6 +436,82 @@ namespace StackOverflowSurvey.Web.Controllers
             string payload = "Transfer 2015 complete.";
 
             return payload;
+        }
+
+        // GET: api/<TranferController>/transfer-2016
+        [HttpGet]
+        [Route("transfer-2016")]
+        public async Task<string> Transfer2016()
+        {
+            List<SurveyResponse2016Model> inMemoryTempDb = new List<SurveyResponse2016Model>();
+            using (var reader = new StreamReader(@"C:\stackoverflow\2016 Stack Overflow Survey Results\2016 Stack Overflow Survey Responses.csv"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    string processedLine = processLine2016(line);
+                    var values = processedLine.Split(',');
+                    List<string> languages = new List<string>();
+                    var untrimmedLanguages = values[16].Split(';');
+                    foreach (var language in untrimmedLanguages)
+                    {
+                        languages.Add(language.Trim());
+                    }
+                    
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var lang in languages)
+                    {
+                        sb.Append(lang);
+                    }
+
+                    SurveyResponse2016Model newResponseToAdd = new SurveyResponse2016Model
+                    {
+                        Country = values[2],
+                        Age = values[5],
+                        Gender = values[7],
+                        //LanguageProC = sb.ToString(),
+                        LanguageProC = languages.Contains("C") ? "C" : null,
+                        LanguageProCPlusPlus = languages.Contains("C++") ? "C++" : null,
+                        LanguageProCSharp = languages.Contains("C#") ? "C#" : null,
+                        LanguageProGo = languages.Contains("Go") ? "Go" : null,
+                        LanguageProJava = languages.Contains("Java") ? "Java" : null,
+                        LanguageProJavaScript = languages.Contains("JavaScript") ? "JavaScript" : null,
+                        LanguageProNodeJs = languages.Contains("Node.js") ? "Node.js" : null,
+                        LanguageProObjectiveC = languages.Contains("Objective-C") ? "Objective-C" : null, 
+                        LanguageProPerl = languages.Contains("Perl") ? "Perl" : null,
+                        LanguageProPHP = languages.Contains("PHP") ? "PHP" : null,
+                        LanguageProPython = languages.Contains("Python") ? "Python" : null,
+                        LanguageProRuby = languages.Contains("Ruby") ? "Ruby" : null,
+                        LanguageProRust = languages.Contains("Rust") ? "Rust" : null,
+                        LanguageProSQL = languages.Contains("SQL") ? "SQL" : null,
+                        LanguageProSQLServer = languages.Contains("SQL Server") ? "SQL Server" : null,
+                        LanguageProSwift = languages.Contains("Swift") ? "Swift" : null
+                    };
+
+                    inMemoryTempDb.Add(newResponseToAdd);
+
+                }
+            }
+            foreach (var response in inMemoryTempDb)
+            {
+                await _repository.Add2016Response(response);
+            }
+
+            string payload = "Transfer 2016 complete.";
+
+            return payload;
+        }
+
+        private string processLine2016(string line)
+        {
+            line = line.Replace("\"", "");
+            line = line.Replace(",000", "K");
+            line = line.Replace(",001", "K");
+            line = line.Replace("001", "K");
+            line = line.Replace(" Scientists, Machine", " Scientists Machine");
+            line = line.Replace("AWS, GAE, Azure, etc", "AWS GAE Azure etc");
+            line = line.Replace("Android, iOS, WP ", "Android iOS WP ");
+            return line;
         }
 
         private string processLine2015(string line)
