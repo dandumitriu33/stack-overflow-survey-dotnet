@@ -637,7 +637,7 @@ namespace StackOverflowSurvey.Web.Controllers
         public async Task<string> Transfer2019()
         {
             List<SurveyResponse2019Model> inMemoryTempDb = new List<SurveyResponse2019Model>();
-            using (var reader = new StreamReader(@"C:\stackoverflow\2019 Stack Overflow Survey Results\2019Testing.csv"))
+            using (var reader = new StreamReader(@"C:\stackoverflow\2019 Stack Overflow Survey Results\survey_results_public.csv"))
             {
                 while (!reader.EndOfStream)
                 {
@@ -677,7 +677,7 @@ namespace StackOverflowSurvey.Web.Controllers
             }
 
             int min = 0;
-            int batchSize = 10;
+            int batchSize = 100;
 
             while (min < inMemoryTempDb.Count)
             {
