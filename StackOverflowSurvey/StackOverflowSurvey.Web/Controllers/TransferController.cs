@@ -631,6 +631,117 @@ namespace StackOverflowSurvey.Web.Controllers
             return payload;
         }
 
+        // GET: api/<TranferController>/transfer-2019
+        [HttpGet]
+        [Route("transfer-2019")]
+        public async Task<string> Transfer2019()
+        {
+            List<SurveyResponse2019Model> inMemoryTempDb = new List<SurveyResponse2019Model>();
+            using (var reader = new StreamReader(@"C:\stackoverflow\2019 Stack Overflow Survey Results\2019Testing.csv"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    string processedLine = processLine2019(line);
+                    var values = processedLine.Split(',');
+                    List<string> languages = new List<string>();
+                    var untrimmedLanguages = values[43].Split(';');
+                    foreach (var language in untrimmedLanguages)
+                    {
+                        languages.Add(language.Trim());
+                    }
+
+                    SurveyResponse2019Model newResponseToAdd = new SurveyResponse2019Model
+                    {
+                        Country = values[6],
+                        //LanguageProC = sb.ToString(),
+                        LanguageProC = languages.Contains("C") ? "C" : null,
+                        LanguageProCPlusPlus = languages.Contains("C++") ? "C++" : null,
+                        LanguageProCSharp = languages.Contains("C#") ? "C#" : null,
+                        LanguageProGo = languages.Contains("Go") ? "Go" : null,
+                        LanguageProJava = languages.Contains("Java") ? "Java" : null,
+                        LanguageProJavaScript = languages.Contains("JavaScript") ? "JavaScript" : null,
+                        LanguageProNodeJs = languages.Contains("Node.js") ? "Node.js" : null,
+                        LanguageProObjectiveC = languages.Contains("Objective-C") ? "Objective-C" : null,
+                        LanguageProPerl = languages.Contains("Perl") ? "Perl" : null,
+                        LanguageProPHP = languages.Contains("PHP") ? "PHP" : null,
+                        LanguageProPython = languages.Contains("Python") ? "Python" : null,
+                        LanguageProRuby = languages.Contains("Ruby") ? "Ruby" : null,
+                        LanguageProRust = languages.Contains("Rust") ? "Rust" : null,
+                        LanguageProSQL = languages.Contains("SQL") ? "SQL" : null,
+                        LanguageProSQLServer = languages.Contains("SQL Server") ? "SQL Server" : null,
+                        LanguageProSwift = languages.Contains("Swift") ? "Swift" : null
+                    };
+                    inMemoryTempDb.Add(newResponseToAdd);
+                }
+            }
+
+            int min = 0;
+            int batchSize = 10;
+
+            while (min < inMemoryTempDb.Count)
+            {
+                if (min + batchSize > inMemoryTempDb.Count)
+                {
+                    await _repository.Add2019ResponsesBatch(inMemoryTempDb.GetRange(min, inMemoryTempDb.Count % batchSize));
+                    min += batchSize;
+                    break;
+                }
+                await _repository.Add2019ResponsesBatch(inMemoryTempDb.GetRange(min, batchSize));
+                min += batchSize;
+            }
+
+            string payload = "Transfer 2019 complete.";
+
+            return payload;
+        }
+
+        private string processLine2019(string line)
+        {
+            line = line.Replace("Yes, part-time", "Yes part-time");
+            line = line.Replace("Yes, full-time", "Yes full-time");
+            line = line.Replace("BA, BS, B.Eng., etc", "BA BS B.Eng. etc");
+            line = line.Replace("MA, MS, M.Eng., MBA, etc", "MA MS M.Eng. MBA etc");
+            line = line.Replace("JD, MD, etc", "JD MD etc");
+            line = line.Replace("Ph.D, Ed.D., etc", "Ph.D Ed.D. etc");
+            line = line.Replace("high school, German", "high school German");
+            line = line.Replace("Gymnasium, etc", "Gymnasium etc");
+            line = line.Replace("developer, but", "developer but");
+            line = line.Replace("profession, but", "profession but");
+            line = line.Replace("contractor, freelancer, or self", "contractor freelancer or self");
+            line = line.Replace("employed, but", "employed but");
+            line = line.Replace("employed, and not", "employed and not");
+            line = line.Replace("science, computer engineering, or", "science computer engineering or");
+            line = line.Replace("systems, information technology, or", "systems information technology or");
+            line = line.Replace("civil, electrical, mec", "civil electrical mec");
+            line = line.Replace("accounting, finance, market", "accounting finance market");
+            line = line.Replace("nursing, pharmacy, radiology", "nursing pharmacy radiology");
+            line = line.Replace("literature, history, philosophy", "literature history philosophy");
+            line = line.Replace("biology, chemistry, physics", "biology chemistry physics");
+            line = line.Replace("anthropology, psychology, politic", "anthropology psychology politic");
+            line = line.Replace("design, music, studio", "design music studio");
+            line = line.Replace("Media, advertising, publishing, or", "Media advertising publishing or");
+            line = line.Replace(",000", "K");
+            line = line.Replace(",999", "_999");
+            line = line.Replace("CEO, CTO, etc", "CEO CTO etc");
+            line = line.Replace("looking, but", "looking but");
+            line = line.Replace("languages, frameworks, and", "languages frameworks and");
+            line = line.Replace("transportation, public", "transportation public");
+            line = line.Replace("membership, nutritionist", "membership nutritionist");
+            line = line.Replace("history, projects", "history projects");
+            line = line.Replace("Office, Google Suite, etc", "Office Google Suite etc");
+            line = line.Replace("IRC, proprietary software, etc", "IRC proprietary software etc");
+            line = line.Replace("Github, Google Sites, proprietary software, etc", "Github Google Sites proprietary software etc");
+            line = line.Replace(" language, framework, or", " language framework or");
+            line = line.Replace("HackerRank, CodeChef,", "HackerRank CodeChef");
+            line = line.Replace("Reilly, Apress, or", "Reilly Apress or");
+            line = line.Replace(" friends, family, and", " friends family and");
+            line = line.Replace("forums, listservs, IRC channels, etc", "forums listservs IRC channels etc");
+            line = line.Replace("l Wikis, chat rooms, or", "l Wikis chat rooms or");
+            line = line.Replace("g language, framework, or", "g language framework or");
+            return line;
+        }
+
         private string processLine2018(string line)
         {
             line = line.Replace("Yes, part-time", "Yes part-time");

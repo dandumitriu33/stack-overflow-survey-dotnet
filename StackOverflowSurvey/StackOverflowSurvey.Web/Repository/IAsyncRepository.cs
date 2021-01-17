@@ -14,5 +14,6 @@ namespace StackOverflowSurvey.Web.Repository
         Task Add2016Response(SurveyResponse2016Model response);
         Task Add2017Response(SurveyResponse2017Model response);
         Task Add2018ResponsesBatch(List<SurveyResponse2018Model> batch);
+        Task Add2019ResponsesBatch(List<SurveyResponse2019Model> batch);
     }
 }

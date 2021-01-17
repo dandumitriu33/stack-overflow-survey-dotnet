@@ -64,5 +64,14 @@ namespace StackOverflowSurvey.Web.Repository
             }
             await _context.SaveChangesAsync();
         }
+
+        public async Task Add2019ResponsesBatch(List<SurveyResponse2019Model> batch)
+        {
+            foreach (var response in batch)
+            {
+                await _context.SurveyResponses2019.AddAsync(response);
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 }
