@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace StackOverflowSurvey.Web.Models
 {
-    public class SurveyResponse2017Model
+    public class SurveyResponse2018Model
     {
         public int Id { get; set; }
-        [Column(TypeName = "VARCHAR(100)")]
         public string Country { get; set; }
         [Column(TypeName = "VARCHAR(100)")]
         public string LanguageProC { get; set; }

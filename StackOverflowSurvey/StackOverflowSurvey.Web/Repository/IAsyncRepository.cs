@@ -1,4 +1,5 @@
 ﻿using StackOverflowSurvey.Web.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace StackOverflowSurvey.Web.Repository
@@ -11,5 +12,8 @@ namespace StackOverflowSurvey.Web.Repository
         Task Add2014Response(SurveyResponse2014Model response);
         Task Add2015Response(SurveyResponse2015Model response);
         Task Add2016Response(SurveyResponse2016Model response);
+        Task Add2017Response(SurveyResponse2017Model response);
+        Task Add2018ResponsesBatch(List<SurveyResponse2018Model> batch);
+        Task Add2019ResponsesBatch(List<SurveyResponse2019Model> batch);
     }
 }

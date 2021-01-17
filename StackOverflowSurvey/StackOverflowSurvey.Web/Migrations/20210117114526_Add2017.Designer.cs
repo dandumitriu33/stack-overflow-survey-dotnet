@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StackOverflowSurvey.Web.Context;
 
 namespace StackOverflowSurvey.Web.Migrations
 {
     [DbContext(typeof(StackOverflowSurveyContext))]
-    partial class StackOverflowSurveyContextModelSnapshot : ModelSnapshot
+    [Migration("20210117114526_Add2017")]
+    partial class Add2017
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -899,185 +901,59 @@ namespace StackOverflowSurvey.Web.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Country")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProC")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProCPlusPlus")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProCSharp")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProGo")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProJava")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProJavaScript")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProNodeJs")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProObjectiveC")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProPHP")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProPerl")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProPython")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProRuby")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProRust")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProSQL")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProSQLServer")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProSwift")
-                        .HasColumnType("VARCHAR(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("SurveyResponses2017");
-                });
-
-            modelBuilder.Entity("StackOverflowSurvey.Web.Models.SurveyResponse2018Model", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LanguageProC")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProCPlusPlus")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProCSharp")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProGo")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProJava")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProJavaScript")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProNodeJs")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProObjectiveC")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProPHP")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProPerl")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProPython")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProRuby")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProRust")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProSQL")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProSQLServer")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProSwift")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SurveyResponses2018");
-                });
-
-            modelBuilder.Entity("StackOverflowSurvey.Web.Models.SurveyResponse2019Model", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LanguageProC")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProCPlusPlus")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProCSharp")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProGo")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProJava")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProJavaScript")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProNodeJs")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProObjectiveC")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProPHP")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProPerl")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProPython")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProRuby")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProRust")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProSQL")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProSQLServer")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("LanguageProSwift")
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SurveyResponses2019");
                 });
 #pragma warning restore 612, 618
         }
