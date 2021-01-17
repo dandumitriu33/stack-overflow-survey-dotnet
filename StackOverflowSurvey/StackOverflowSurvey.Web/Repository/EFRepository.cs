@@ -1,5 +1,6 @@
 ﻿using StackOverflowSurvey.Web.Context;
 using StackOverflowSurvey.Web.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace StackOverflowSurvey.Web.Repository
@@ -52,6 +53,15 @@ namespace StackOverflowSurvey.Web.Repository
         public async Task Add2017Response(SurveyResponse2017Model response)
         {
             await _context.SurveyResponses2017.AddAsync(response);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Add2018ResponsesBatch(List<SurveyResponse2018Model> batch)
+        {
+            foreach (var response in batch)
+            {
+                await _context.SurveyResponses2018.AddAsync(response);
+            }
             await _context.SaveChangesAsync();
         }
     }
