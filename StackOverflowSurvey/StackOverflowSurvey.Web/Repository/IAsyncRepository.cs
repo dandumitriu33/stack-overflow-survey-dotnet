@@ -1,5 +1,6 @@
 ﻿using StackOverflowSurvey.Web.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace StackOverflowSurvey.Web.Repository
@@ -17,5 +18,7 @@ namespace StackOverflowSurvey.Web.Repository
         Task Add2019ResponsesBatch(List<SurveyResponse2019Model> batch);
         Task Add2020ResponsesBatch(List<SurveyResponse2020Model> batch);
         SurveyResponse2020Model GetResponse2020ById(int id);
+        //List<SurveyResponse2020Model> Get2020Count();
+        Task<int> Get2020Count();
     }
 }

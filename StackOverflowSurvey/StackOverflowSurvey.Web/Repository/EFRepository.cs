@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StackOverflowSurvey.Web.Context;
 using StackOverflowSurvey.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -91,6 +92,17 @@ namespace StackOverflowSurvey.Web.Repository
                            .FromSqlRaw<SurveyResponse2020Model>("spGetResponseById {0}", id)
                            .ToList()
                            .FirstOrDefault();
+        }
+
+        //public List<SurveyResponse2020Model> Get2020Count()
+        //{
+        //    var result = _context.SurveyResponses2020.FromSqlRaw<SurveyResponse2020Model>("exec spTestCount2020a").ToList();
+        //    return result;
+        //}
+
+        public async Task<int> Get2020Count()
+        {
+            return await _context.SurveyResponses2020.CountAsync();
         }
     }
 }

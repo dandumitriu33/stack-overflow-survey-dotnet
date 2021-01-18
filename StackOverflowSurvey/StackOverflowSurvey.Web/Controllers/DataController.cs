@@ -17,9 +17,11 @@ namespace StackOverflowSurvey.Web.Controllers
         }
 
         // GET
-        public IActionResult TransferCount2020()
+        public async Task<IActionResult> TransferCount2020()
         {
-            var requests = _repository.GetResponse2020ById(173);
+            //var requests = _repository.GetResponse2020ById(173);
+            //var requests = _repository.Get2020Count();
+            var requests = await _repository.Get2020Count();
             return View(requests);
         }
     }
