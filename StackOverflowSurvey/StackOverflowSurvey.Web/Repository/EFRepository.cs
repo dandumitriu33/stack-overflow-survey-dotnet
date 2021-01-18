@@ -1,6 +1,8 @@
-﻿using StackOverflowSurvey.Web.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using StackOverflowSurvey.Web.Context;
 using StackOverflowSurvey.Web.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace StackOverflowSurvey.Web.Repository
@@ -81,6 +83,14 @@ namespace StackOverflowSurvey.Web.Repository
                 await _context.SurveyResponses2020.AddAsync(response);
             }
             await _context.SaveChangesAsync();
+        }
+
+        public SurveyResponse2020Model GetResponse2020ById(int id)
+        {
+            return _context.SurveyResponses2020
+                           .FromSqlRaw<SurveyResponse2020Model>("spGetResponseById {0}", id)
+                           .ToList()
+                           .FirstOrDefault();
         }
     }
 }
