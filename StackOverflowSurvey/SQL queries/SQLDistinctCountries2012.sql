@@ -1,1 +1,1 @@
-﻿select count(*) from SurveyResponses2019;
+﻿select count(*) from SurveyResponses2020;
