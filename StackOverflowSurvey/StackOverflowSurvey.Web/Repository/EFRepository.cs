@@ -102,7 +102,15 @@ namespace StackOverflowSurvey.Web.Repository
 
         public async Task<int> Get2020Count()
         {
-            return await _context.SurveyResponses2020.CountAsync();
+            // LINQ
+            //return await _context.SurveyResponses2020.CountAsync();
+
+            // RAW SQL + LINQ - limitation on RAW - must return data for all properties of the entity type
+            // can't return a simple INT, the result of the count
+            // https://docs.microsoft.com/en-us/ef/core/querying/raw-sql#limitations
+            var sql = "SELECT * FROM SurveyResponses2020";
+            var queryResult = await _context.SurveyResponses2020.FromSqlRaw<SurveyResponse2020Model>(sql).ToListAsync();
+            return queryResult.Count();
         }
     }
 }
