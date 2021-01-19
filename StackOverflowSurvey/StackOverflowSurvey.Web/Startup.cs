@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StackOverflowSurvey.Web.Context;
 using StackOverflowSurvey.Web.Repository;
+using StackOverflowSurvey.Web.SQLDeliverySerivce;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace StackOverflowSurvey.Web
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<IAsyncRepository, EFRepository>();
+            services.AddScoped<ISQLDeliveryService, DBDeliveryService>();
             services.AddControllersWithViews();
         }
 
