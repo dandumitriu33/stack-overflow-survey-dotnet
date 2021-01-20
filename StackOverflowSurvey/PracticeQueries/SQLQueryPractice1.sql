@@ -22,8 +22,8 @@
 --WHERE Country = 'Germany'
 --GROUP BY Country
 
-DECLARE @CountryName AS VARCHAR(100) = 'Romania'
-DECLARE @AltCountryName AS VARCHAR(100) = 'Other Europe'
+DECLARE @CountryName AS VARCHAR(100) = 'Russia'
+DECLARE @AltCountryName AS VARCHAR(100) = 'Russia'
 PRINT @CountryName
 PRINT @AltCountryName
 SELECT Country,
@@ -480,7 +480,7 @@ SELECT Country,
 	  )
 	  as 'JS_Percent',
 	  (
-	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE (Country = @CountryName OR Country = @AltCountryName) AND ObjectiveC = 'Objective-C') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProObjectiveC = 'Objective-C') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'ObjectiveC_Percent',
@@ -553,7 +553,7 @@ SELECT Country,
 	  )
 	  as 'JS_Percent',
 	  (
-	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE (Country = @CountryName OR Country = @AltCountryName) AND ObjectiveC = 'Objective-C') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProObjectiveC = 'Objective-C') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'ObjectiveC_Percent',
@@ -626,7 +626,7 @@ SELECT Country,
 	  )
 	  as 'JS_Percent',
 	  (
-	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE (Country = @CountryName OR Country = @AltCountryName) AND ObjectiveC = 'Objective-C') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProObjectiveC = 'Objective-C') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'ObjectiveC_Percent',
