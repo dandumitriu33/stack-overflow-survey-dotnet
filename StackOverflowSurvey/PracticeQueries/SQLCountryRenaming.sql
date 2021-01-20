@@ -38,6 +38,26 @@
 --	SET Country = 'Azerbaijan'
 --	WHERE Country = 'Azerbaidjan'	
 
-UPDATE SurveyResponses2020
-	SET Country = 'Moldova'
-	WHERE Country = 'Republic of Moldova'
+--UPDATE SurveyResponses2020
+--	SET Country = 'Moldova'
+--	WHERE Country = 'Republic of Moldova'
+
+--UPDATE SurveyResponses2015
+--	SET Country = 'Myanmar'
+--	WHERE Country = '"Myanmar'
+
+--UPDATE SurveyResponses2018
+--SET Country = 'Congo'
+--WHERE Country = '"Congo'
+
+--UPDATE SurveyResponses2018
+--SET Country = 'Iran'
+--WHERE Country = '"Iran'
+
+--UPDATE SurveyResponses2018
+--SET Country = 'Micronesia'
+--WHERE Country = '"Micronesia'
+
+UPDATE SurveyResponses2018
+	SET Country = 'Venezuela'
+	WHERE Country = '"Venezuela'
