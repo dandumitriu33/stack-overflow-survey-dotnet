@@ -9,8 +9,8 @@ using StackOverflowSurvey.Web.Context;
 namespace StackOverflowSurvey.Web.Migrations
 {
     [DbContext(typeof(StackOverflowSurveyContext))]
-    [Migration("20210118191354_spCount2020")]
-    partial class spCount2020
+    [Migration("20210120082420_Rename2014ObjectiveC")]
+    partial class Rename2014ObjectiveC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,6 +88,9 @@ namespace StackOverflowSurvey.Web.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProNone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LanguageProObjectiveC")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LanguageProOther")

@@ -2,7 +2,149 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h4>Stack Overflow Survey Charts</h4>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <div id="countrySelectorContainer">
+                <div class="form-group">
+                    <select class="form-control" id="countrySelector">
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-8">
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkC">
+                            <label class="form-check-label" for="checkC">
+                                C
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkCPlusPlus">
+                            <label class="form-check-label" for="checkCPlusPlus">
+                                C++
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkCSharp">
+                            <label class="form-check-label" for="checkCSharp">
+                                C#
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkGo">
+                            <label class="form-check-label" for="checkGo">
+                                Go
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkJava">
+                            <label class="form-check-label" for="checkJava">
+                                Java
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkJavaScript">
+                            <label class="form-check-label" for="checkJavaScript">
+                                JavaScript
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkObjectiveC">
+                            <label class="form-check-label" for="checkObjectiveC">
+                                Objective-C
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkPerl">
+                            <label class="form-check-label" for="checkPerl">
+                                Perl
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkPHP">
+                            <label class="form-check-label" for="checkPHP">
+                                PHP
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkPython">
+                            <label class="form-check-label" for="checkPython">
+                                Python
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkRuby">
+                            <label class="form-check-label" for="checkRuby">
+                                Ruby
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkRust">
+                            <label class="form-check-label" for="checkRust">
+                                Rust
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkSQL">
+                            <label class="form-check-label" for="checkSQL">
+                                SQL
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="checkSwift">
+                            <label class="form-check-label" for="checkSwift">
+                                Swift
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-success btn-sm text-white" id="displayDataButton">Display data</a>
+
+        </div>
+
+    </div>
+    
+
 </div>
+@section Scripts {
+    <script type="module" src="~/js/home.js"></script>
+    <script type="module" src="~/js/utils.js"></script>
+}

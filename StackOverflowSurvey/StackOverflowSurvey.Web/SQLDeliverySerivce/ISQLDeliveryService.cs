@@ -8,5 +8,6 @@ namespace StackOverflowSurvey.Web.SQLDeliverySerivce
     public interface ISQLDeliveryService
     {
         Task<int> rowCount(string sqlQuery);
+        Task<string[]> GetAllCountries();
     }
 }

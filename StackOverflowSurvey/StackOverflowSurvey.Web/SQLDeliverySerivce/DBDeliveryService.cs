@@ -16,6 +16,30 @@ namespace StackOverflowSurvey.Web.SQLDeliverySerivce
             _configuration = configuration;
         }
 
+        public async Task<string[]> GetAllCountries()
+        {
+            var countries = await Task.Run(() => getCountriesAsync());
+            return countries;
+        }
+
+        private string[] getCountriesAsync()
+        {
+            var countries = new string[]
+            { 
+              "United States", "India", "United Kingdom", "Germany", "Canada", "France", "Brazil", "Netherlands", "Poland", "Australia",
+              "Spain", "Italy", "Russia", "Sweden", "Pakistan", "Turkey", "Israel", "Switzerland", "Bangladesh", "Romania",
+              "Nigeria", "Mexico", "Austria", "Ukraine", "Czech Republic", "Indonesia", "South Africa", "Iran", "Belgium", "Ireland",
+              "Philippines", "Denmark", "Argentina", "Greece", "Portugal", "Norway", "Hungary", "China", "Vietnam", "New Zealand",
+              "Finland", "Bulgaria", "Serbia", "Japan", "Sri Lanka", "Colombia", "Egypt", "Kenya", "Nepal", "Malaysia",
+              "Singapore", "South Korea", "Slovakia", "Croatia", "Chile", "Morocco", "Lithuania", "Taiwan", "Slovenia", "Thailand",
+              "Estonia", "Belarus", "Tunisia", "United Arab Emirates", "Hong Kong", "Latvia", "Ghana", "Peru", "Uruguay", "Bosnia and Herzegovina",
+              "Algeria", "Saudi Arabia", "Afghanistan", "Uganda", "Costa Rica", "Dominican Republic", "Lebanon", "Venezuela", "Georgia", "Armenia",
+              "Kazakhstan", "Ethiopia", "Jordan", "Albania", "Iceland", "Myanmar", "Cyprus", "Cameroon", "Azerbaijan", "Moldova",
+              "Guatemala", "Ecuador", "Malta", "Iraq", "Luxembourg"
+            };
+            return countries;
+        }
+
         public async Task<int> rowCount(string sqlQuery)
         {
             var rowCount = await Task.Run(() => rowCountQuery(sqlQuery));
