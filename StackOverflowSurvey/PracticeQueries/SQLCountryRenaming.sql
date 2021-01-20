@@ -26,6 +26,18 @@
 --	SET Country = 'Hong Kong'
 --	WHERE Country = 'Hong Kong (S.A.R.)'
 	
-UPDATE SurveyResponses2015
-	SET Country = 'Bosnia and Herzegovina'
-	WHERE Country = 'Bosnia Herzegovina'
+--UPDATE SurveyResponses2015
+--	SET Country = 'Bosnia and Herzegovina'
+--	WHERE Country = 'Bosnia Herzegovina'
+	
+--UPDATE SurveyResponses2017
+--	SET Country = 'Myanmar'
+--	WHERE Country = 'Myanmar [Burma]'
+	
+--UPDATE SurveyResponses2017
+--	SET Country = 'Azerbaijan'
+--	WHERE Country = 'Azerbaidjan'	
+
+UPDATE SurveyResponses2020
+	SET Country = 'Moldova'
+	WHERE Country = 'Republic of Moldova'
