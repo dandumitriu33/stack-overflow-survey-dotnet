@@ -1,22 +1,11 @@
-﻿console.log("hi from home");
+﻿import { getCountries } from './utils.js';
+console.log("hi from home");
 
-createSelector();
+getCountries();
 
-
-function createSelector() {
-    let countries = ['United States', 'India', 'United Kingdom', 'Romania'];
-
-    for (var i = 0; i < countries.length; i++) {
-        let element = `
-                <option value="${countries[i]}">${countries[i]}</option>
-        `;
-        $("#countrySelector").append(element);
-    }
-    
-}
 
 $("#countrySelector").change(function () {
-    console.log("changed country");
+    console.log("changed country to: " + $("#countrySelector").val());
 });
 
 $("#displayDataButton").click(function () {
