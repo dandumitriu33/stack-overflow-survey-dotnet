@@ -39,6 +39,7 @@ namespace StackOverflowSurvey.Web.Models
         public string BudgetDontKnow { get; set; }
         public string TypeOfProject { get; set; }
         public string LanguageProJava { get; set; }
+        public string LanguageProObjectiveC { get; set; }
         public string LanguageProJavaScript { get; set; }
         public string LanguageProCSS { get; set; }
         public string LanguageProPHP { get; set; }
