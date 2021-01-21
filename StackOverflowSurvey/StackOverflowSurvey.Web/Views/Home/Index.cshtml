@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-8">
             <div class="container">
                 <div class="row">
@@ -141,10 +141,15 @@
         </div>
 
     </div>
-    
+
 
 </div>
+<div class="container" id="dataVisualisationContainer">
+    <canvas id="dataChart"></canvas>
+</div>
+
 @section Scripts {
     <script type="module" src="~/js/home.js"></script>
-    <script type="module" src="~/js/utils.js"></script>
+    <script type="module" src="~/js/utils.js"></script>  
+    <script src="~/lib/Chart.js/Chart.min.js"></script>
 }
