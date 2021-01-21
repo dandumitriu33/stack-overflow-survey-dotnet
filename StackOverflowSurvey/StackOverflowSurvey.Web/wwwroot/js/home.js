@@ -1,4 +1,4 @@
-﻿import { getCountries } from './utils.js';
+﻿import { getCountries, getDataForCountry } from './utils.js';
 console.log("hi from home");
 
 getCountries();
@@ -14,6 +14,7 @@ $("#displayDataButton").click(function () {
     console.log("got country: " + country)
     let languages = getDomLanguages();
     console.log("languages: " + languages);
+    getDataForCountry(country, languages);
 })
 
 function getDomCountry() {

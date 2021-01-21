@@ -19,4 +19,26 @@ async function getCountries() {
         .catch(err => console.log('Request Failed', err)); // Catch errors
 }
 
-export { getCountries };
+async function getDataForCountry(countryName, languages) {
+    console.log("GDFC: " + countryName);
+    console.log("GDFC L1: " + languages[0]);
+    var data = {
+        "CountryName": countryName,
+        "Languages": languages
+    }
+    var URL = 'https://localhost:44332/api/query/data-for-country';
+    fetch(URL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+        })
+        .then(response => response.json())
+        .then(json => constructDataVisualisation(json))
+        .catch (err => console.log(err));
+}
+
+function constructDataVisualisation(json) {
+    console.log(json);
+}
+
+export { getCountries, getDataForCountry };
