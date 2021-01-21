@@ -276,7 +276,7 @@ SELECT Country,
 	  as 'Ruby_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2017 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProSQL = 'SQL') * 100 /
-	  (SELECT COUNT(*) FROM SurveyResponses2017 WHERE Country = @CountryName)
+	  (SELECT COUNT(*) FROM SurveyResponses2017 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'SQL_Percent',
 	  (
@@ -415,8 +415,8 @@ SELECT Country,
 	  )
 	  as 'Ruby_Percent',
 	  (
-	  (SELECT COUNT(*) FROM SurveyResponses2015 WHERE Country = @CountryName AND LanguageProSQL = 'SQL') * 100 /
-	  (SELECT COUNT(*) FROM SurveyResponses2015 WHERE Country = @CountryName)
+	  (SELECT COUNT(*) FROM SurveyResponses2015 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProSQL = 'SQL') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2015 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'SQL_Percent',
 	  (
@@ -444,12 +444,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'C#_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProGo = 'Go') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Go_Percent',
-	  '0' as 'Go_Percent',
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProGo = 'Go') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Go_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProJava = 'Java') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -465,12 +464,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'ObjectiveC_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProPerl = 'Perl') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Perl_Percent',
-	  '0' as Perl_Percent,
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPerl = 'Perl') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Perl_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPHP = 'PHP') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -491,12 +489,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'SQL_Percent',
-	  '0' as Swift_Percent
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProSwift = 'Swift') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Swift_Percent'
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProSwift = 'Swift') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Swift_Percent'
 FROM SurveyResponses2014
 WHERE Country = @CountryName OR Country = @AltCountryName
 UNION
@@ -517,12 +514,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'C#_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProGo = 'Go') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Go_Percent',
-	  '0' as 'Go_Percent',
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProGo = 'Go') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Go_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProJava = 'Java') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -538,12 +534,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'ObjectiveC_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProPerl = 'Perl') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Perl_Percent',
-	  '0' as Perl_Percent,
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPerl = 'Perl') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Perl_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPHP = 'PHP') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -564,12 +559,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'SQL_Percent',
-	  '0' as Swift_Percent
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProSwift = 'Swift') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Swift_Percent'
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProSwift = 'Swift') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2013 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Swift_Percent'
 FROM SurveyResponses2013
 WHERE Country = @CountryName OR Country = @AltCountryName
 UNION
@@ -590,12 +584,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'C#_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProGo = 'Go') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Go_Percent',
-	  '0' as 'Go_Percent',
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProGo = 'Go') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Go_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProJava = 'Java') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -611,12 +604,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'ObjectiveC_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProPerl = 'Perl') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Perl_Percent',
-	  '0' as Perl_Percent,
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPerl = 'Perl') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Perl_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPHP = 'PHP') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -637,12 +629,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'SQL_Percent',
-	  '0' as Swift_Percent
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProSwift = 'Swift') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Swift_Percent'
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProSwift = 'Swift') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2012 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Swift_Percent'
 FROM SurveyResponses2012
 WHERE Country = @CountryName OR Country = @AltCountryName
 UNION
@@ -663,12 +654,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'C#_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProGo = 'Go') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Go_Percent',
-	  '0' as 'Go_Percent',
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProGo = 'Go') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Go_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProJava = 'Java') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -679,18 +669,16 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'JS_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName AND ObjectiveC = 'Objective-C') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName)
-	  --)
-	  --as 'ObjectiveC_Percent',
-	  '0' as 'ObjectiveC_Percent',
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProPerl = 'Perl') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Perl_Percent',
-	  '0' as Perl_Percent,
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProObjectiveC = 'Objective-C') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'ObjectiveC_Percent',
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPerl = 'Perl') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Perl_Percent',
 	  (
 	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProPHP = 'PHP') * 100 /
 	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
@@ -711,12 +699,11 @@ SELECT Country,
 	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
 	  )
 	  as 'SQL_Percent',
-	  '0' as Swift_Percent
-	  --(
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName AND LanguageProSwift = 'Swift') * 100 /
-	  --(SELECT COUNT(*) FROM SurveyResponses2014 WHERE Country = @CountryName)
-	  --)
-	  --as 'Swift_Percent'
+	  (
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE (Country = @CountryName OR Country = @AltCountryName) AND LanguageProSwift = 'Swift') * 100 /
+	  (SELECT COUNT(*) FROM SurveyResponses2011 WHERE Country = @CountryName OR Country = @AltCountryName)
+	  )
+	  as 'Swift_Percent'
 FROM SurveyResponses2011
 WHERE Country = @CountryName OR Country = @AltCountryName
 GROUP BY Country
