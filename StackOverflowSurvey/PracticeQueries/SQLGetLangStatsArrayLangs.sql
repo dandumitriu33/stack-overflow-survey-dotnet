@@ -1,4 +1,4 @@
-﻿DECLARE @CountryName AS VARCHAR(100) = 'Hong Kong'
+﻿DECLARE @CountryName AS VARCHAR(100) = 'Afghanistan'
 DECLARE @AltCountryName AS VARCHAR(100) = 'Other Asia'
 DECLARE @LanguagesFromRequest TABLE (languageName VARCHAR(100)) 
 INSERT @LanguagesFromRequest(languageName) values ('LanguageProC'),('LanguageProCPlusPlus');
