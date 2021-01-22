@@ -1,5 +1,5 @@
 # stack-overflow-survey-dotnet
-Educational project -exercise in data science on the Stack Overflow Annual Survey responses
+Educational project - practicing SQL and light data science on the Stack Overflow Annual Survey responses
 
 ### Screenshots
 ![alt text](screenshots/US_popular.jpg?raw=true)
